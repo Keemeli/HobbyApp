@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [sessions, setSessions] = useState([
-    { id: 1, title: 'Football Practice', date: '2025-10-10', time: '18:00' },
-    { id: 2, title: 'Chess Club', date: '2025-10-12', time: '19:30' },
-  ]);
+  const [sessions, setSessions] = useState([]);
+  
+  useEffect(() => {
+    fetch('http://localhost:3001/api/sessions')
+      .then(response => response.json())
+      .then(data => setSessions(data))
+      .catch(error => console.log('Error:', error));
+  }, []);
 
   return (
     <div>
