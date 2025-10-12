@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .App-header {
@@ -14,6 +17,20 @@
   padding: 15px;
   margin: 10px 0;
   text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.session-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+.session-details {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0;
 }
 
 .session-card h3 {
