@@ -20,5 +20,44 @@
     "maxParticipants": 10,
     "type": "public",
     "participants": []
+  },
+  {
+    "id": 1760255680326,
+    "title": "Test Session",
+    "description": "",
+    "date": "2025-10-15",
+    "time": "14:00",
+    "maxParticipants": 5,
+    "type": "public",
+    "managementCode": "etttsgkg",
+    "participants": [
+      {
+        "id": 1760255741897,
+        "attendanceCode": "btaw51ff",
+        "joinedAt": "2025-10-12T07:55:41.897Z"
+      }
+    ]
+  },
+  {
+    "id": 1760256947069,
+    "title": "basketball",
+    "description": "",
+    "date": "2025-10-13",
+    "time": "20:00",
+    "maxParticipants": 20,
+    "type": "public",
+    "managementCode": "ua0low32",
+    "participants": []
+  },
+  {
+    "id": 1760256983748,
+    "title": "Test Grade 2 Session",
+    "description": "Simple test session",
+    "date": "2025-10-20",
+    "time": "15:00",
+    "maxParticipants": 8,
+    "type": "public",
+    "managementCode": "o90cqn9e",
+    "participants": []
   }
 ]

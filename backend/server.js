@@ -28,27 +28,27 @@ app.get('/api/sessions', (req, res) => {
 // Create new session
 app.post('/api/sessions', (req, res) => {
   const newSession = {
-    id: Date.now(),
+    id: Date.now(), // simple ID using timestamp
     title: req.body.title,
     description: req.body.description || '',
     date: req.body.date,
     time: req.body.time,
     maxParticipants: req.body.maxParticipants || 10,
-    type: req.body.type || 'public',
-    participants: []
+    type: req.body.type || 'public'
   };
   
   sessions.push(newSession);
   
+  // Save to JSON file
   try {
     fs.writeFileSync(path.join(__dirname, 'sessions.json'), JSON.stringify(sessions, null, 2));
-    console.log('Session created and saved:', newSession.title);
+    console.log('Session created:', newSession.title);
   } catch (error) {
-    console.error('Error saving sessions:', error);
-    return res.status(500).json({ error: 'Failed to save session' });
+    console.log('Error saving:', error);
+    return res.json({ error: 'Could not save session' });
   }
   
-  res.status(201).json(newSession);
+  res.json(newSession);
 });
 
 app.listen(PORT, () => {

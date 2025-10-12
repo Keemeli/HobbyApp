@@ -43,6 +43,7 @@ function App() {
           maxParticipants: 10,
           type: 'public'
         });
+        alert('Session created successfully!');
         console.log('Session created successfully!');
       } else {
         console.error('Failed to create session');
@@ -82,6 +83,26 @@ function App() {
         onChange={(e) => setFormData({...formData, time: e.target.value})}
         required
       />
+      <input 
+        type="number" 
+        placeholder="Maximum Participants" 
+        value={formData.maxParticipants}
+        onChange={(e) => setFormData({...formData, maxParticipants: parseInt(e.target.value)})}
+        min="1"
+        required
+      />
+      <select 
+        value={formData.type}
+        onChange={(e) => setFormData({...formData, type: e.target.value})}
+      >
+        <option value="public">Public Session</option>
+        <option value="private">Private Session</option>
+      </select>
+      <textarea 
+        placeholder="Session Description (optional)" 
+        value={formData.description}
+        onChange={(e) => setFormData({...formData, description: e.target.value})}
+      />
       <button type="submit">
         Create Session
       </button>
@@ -94,8 +115,11 @@ function App() {
       {sessions.map(session => (
         <div key={session.id} className="session-card">
           <h3>{session.title}</h3>
+          {session.description && <p>{session.description}</p>}
           <p className="session-details">Date: {session.date}</p>
           <p className="session-details">Time: {session.time}</p>
+          <p className="session-details">Max: {session.maxParticipants || 'Not specified'}</p>
+          <p className="session-details">Type: {session.type || 'public'}</p>
         </div>
       ))}
     </div>
